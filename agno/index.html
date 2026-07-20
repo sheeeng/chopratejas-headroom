@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3108,7 +3108,7 @@
 <h3 id="best-practices-for-maximum-savings">Best Practices for Maximum Savings<a class="headerlink" href="#best-practices-for-maximum-savings" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Tool-heavy agents see the biggest wins</strong> — Tool results (JSON, logs, search results) compress 70-90%</li>
-<li><strong>Long conversations benefit from RollingWindow</strong> — Configure context limits to avoid hitting provider maximums</li>
+<li><strong>Long conversations are handled automatically</strong> — Headroom compresses the newest tool outputs and content blocks in place (live-zone-only compression) and never drops messages from history, so the cache hot zone stays intact. No context-limit configuration is required.</li>
 <li><strong>Wrap at the model level, not agent level</strong> — This ensures all LLM calls go through optimization</li>
 <li><strong>Use hooks for observability</strong> — Track token usage patterns to identify optimization opportunities</li>
 </ol>
@@ -3408,7 +3408,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "search.share", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
