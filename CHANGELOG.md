@@ -284,6 +284,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **code:** fix two `CodeAwareCompressor` AST-reassembly bugs: an exported JS/TS function or class (`export function foo() {`) produced a duplicated `export export` keyword and invalid syntax, because line-based node slicing (used to preserve indentation) pulled in the preceding `export` sibling's text on top of the `export_statement` handler's own prefix reconstruction. Separately, in every supported language, a doc comment immediately above a top-level function, class, or type was detached from its declaration during extraction and re-emitted in a cluster at the end of the compressed output instead of staying attached to what it documents.
 - * **proxy:** Buffered upstream responses containing a `server_tool_use` (or any other unrecognized Anthropic content block) no longer turn a fully-generated response into an HTTP 502. `StreamingMixin._response_to_sse` raised `ValueError` on unknown block types after the entire upstream generation had already been buffered, so a slow-but-successful response failed and the client retried the whole multi-minute request. Unknown blocks are now emitted verbatim in `content_block_start` (following the existing redacted_thinking` pattern), so `server_tool_use`, `server_tool_result`, `mcp_tool_use`, and future block types round-trip ([#1806](https://github.com/headroomlabs-ai/headroom/issues/1806)).
 
+## [0.41.0](https://github.com/sheeeng/chopratejas-headroom/compare/v0.40.0...v0.41.0) (2026-10-07)
+
+
+### Features
+
+* **router:** add max_output_tokens condition to ModelRoute ([#3898](https://github.com/sheeeng/chopratejas-headroom/issues/3898)) ([01185e3](https://github.com/sheeeng/chopratejas-headroom/commit/01185e32d393c02ae63b104429f6dbfc6cdd1da0))
+
+
+### Bug Fixes
+
+* **deps:** clear the two high npm advisories failing the Security workflow ([#4004](https://github.com/sheeeng/chopratejas-headroom/issues/4004)) ([5a516b5](https://github.com/sheeeng/chopratejas-headroom/commit/5a516b54afd50156521638645a9063992e395a7b))
+* **plugins/openclaw:** keep compression system-prompt notice cache-stable ([#3811](https://github.com/sheeeng/chopratejas-headroom/issues/3811)) ([f885187](https://github.com/sheeeng/chopratejas-headroom/commit/f8851878a4feb0b64df8a5b22a89ebb198199bdf))
+* **proxy:** break the compact-every-turn loop near the real context window ([#2942](https://github.com/sheeeng/chopratejas-headroom/issues/2942)) ([76cceeb](https://github.com/sheeeng/chopratejas-headroom/commit/76cceeb48728a4f179626e43f1ec23d1f7cebd79))
+* **proxy:** don't retry a 429/529 that cannot succeed within the backoff cap ([#3992](https://github.com/sheeeng/chopratejas-headroom/issues/3992)) ([a961a6f](https://github.com/sheeeng/chopratejas-headroom/commit/a961a6fea083a9a739df40d1371e1e7ec108516d))
+* **router:** bound ML compression per request, not just per block ([#3721](https://github.com/sheeeng/chopratejas-headroom/issues/3721)) ([f37980f](https://github.com/sheeeng/chopratejas-headroom/commit/f37980f7f7612e7ae58b4f3b5b98f185e216fd91))
+* **wrap:** let `wrap opencode` target a third-party OpenAI-compatible upstream ([#3125](https://github.com/sheeeng/chopratejas-headroom/issues/3125)) ([0d7d61d](https://github.com/sheeeng/chopratejas-headroom/commit/0d7d61d5ccaee25d399ae3209e8ce067e8673b30))
+* **wrap:** trim the wrap claude startup banner ([#3900](https://github.com/sheeeng/chopratejas-headroom/issues/3900)) ([aba75cb](https://github.com/sheeeng/chopratejas-headroom/commit/aba75cbf6d2fe1e4c728e4af258907d9c28028d0))
+
 ## [0.40.0](https://github.com/headroomlabs-ai/headroom/compare/v0.39.1...v0.40.0) (2026-10-06)
 
 
